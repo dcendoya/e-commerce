@@ -1,4 +1,5 @@
 import React from "react";
+import CartIcon from "./CartWidget";
 
 export default function NavBar (){
     return (
@@ -10,6 +11,7 @@ export default function NavBar (){
                     <li style={{display: "inline", padding: "10px"}}><a href="#" style={{textDecoration: "none", color: "black", fontWeight: "lighter"}}>Productos</a></li>
                     <li style={{display: "inline", padding: "10px"}}><a href="#" style={{textDecoration: "none", color: "black", fontWeight: "lighter"}}>Contacto</a></li>   
                 </ul>
+                <CartIcon style={{display: "inline"}}/>
             </div>
         </>
 )
