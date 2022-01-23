@@ -1,14 +1,13 @@
 import './App.css';
+import { BrowserRouter, Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
-import ItemList from './components/ItemList';
 
 function App() {
   return (
     <>
-    <div><NavBar /></div>
-    <div><ItemListContainer greeting={'¡Hola! Conocé todos nuestros productos:'}/></div>
-    <div><ItemList /></div>
+            <NavBar />
+            <div><ItemListContainer greeting={'¡Hola! Conocé todos nuestros productos:'} /></div>
     </>
   );
 }
