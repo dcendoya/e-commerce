@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom/cjs/react-router-
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
+import Catalogo from './components/Catalogo';
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
               <ItemListContainer greeting={'¡Hola! Conocé todos nuestros productos:'} />
             </Route>
             {/* ruta catálogo */}
-            <Route exact path="/catalogo">
-              
+            <Route path="/catalogo/:catalogoId">
+              <Catalogo />
             </Route>
             {/* ruta item */}
             <Route path="/item/:itemId">

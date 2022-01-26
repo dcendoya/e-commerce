@@ -2,11 +2,11 @@ import React, {useState, useEffect} from "react";
 import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min';
 import ItemDetail from "./ItemDetail";
 
-export default function ItemDetailContainer () {
+export default function Catalogo () {
 
-    const { itemId } = useParams();
+    const { catalogoId } = useParams();
 
-    const [producto, setProducto] = useState ([]);
+    const [categorias, setCategorias] = useState ([]);
 
     useEffect(()=> {
         setTimeout(()=>{
@@ -18,13 +18,25 @@ export default function ItemDetailContainer () {
                                     {id: '06', title: 'pantalón', color:'verde', description: 'Pantalón de gabardina tiro alto con lazo en la cintura', price:1000, stock: 3, categoria: 'bottoms', url:'https://falabella.scene7.com/is/image/FalabellaCO/881576713_1'}
                             ];
             
-            setProducto(listaProductos.filter(item => item.id == itemId)[0]);
+            setCategorias(listaProductos.filter(item => item.categoria == catalogoId));
         }, 2000)
-    }, [])
+    }, [catalogoId])
 
     return (
         <>
-            <div><ItemDetail producto={producto} /></div>
+            <div>
+                <p>Mirá todas las prendas del catálogo {catalogoId}</p>
+            </div>
+            {categorias.map(item => (
+                <div style={{marginBottom: "80px", width: "fit-content", padding: "30px", borderRadius: "30px", boxShadow: "rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px"}}>
+                <div><img src={item.url} style={{width: "200px"}}/></div>
+                <p style={{textTransform: "capitalize", fontWeight: "bold", fontSize: "18px"}}>{item.title} color {item.color}</p>
+                
+                <p style={{textTransform: "capitalize", fontSize: "18px"}}>${item.price}</p>
+                <button style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#c6c6c6", padding: "8px", textTransform: "uppercase", fontWeight: "bold", fontSize: "8.5px"}}>Ver detalle</button>
+                </div>
+            ))}
         </>
     )
+
 }
