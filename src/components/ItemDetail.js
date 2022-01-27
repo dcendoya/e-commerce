@@ -4,6 +4,25 @@ import ItemCount from "./ItemCount";
 
 export default function ItemDetail ({producto}) {
 
+    const [showItemCount, setShowItemCount] = useState(true);
+    
+    const [cantidad, setCantidad] = useState(0);
+
+    function sumar(){
+
+        if (cantidad < producto.stock) setCantidad(cantidad + 1);
+    }
+
+    function restar() {
+        if(cantidad > 0) setCantidad(cantidad - 1);
+    }
+
+    function onAdd () {
+
+        alert("Estás por agregar " + JSON.stringify(cantidad) + " " + producto.title + " al carrito.")
+        setShowItemCount(false);
+    }
+
     return (
         <>
 
@@ -17,7 +36,16 @@ export default function ItemDetail ({producto}) {
                     <p style={{fontSize: "14px"}}>{producto.description}</p>
                     <p style={{fontSize: "14px"}}>Stock del producto: {producto.stock}</p>
                         <div>
-                            <ItemCount max={producto.stock} min='0' />
+                            {(showItemCount)?
+                            <>
+                                <ItemCount onAdd={onAdd} cantidad={cantidad} sumar={sumar} restar={restar} />
+                            </>
+                            :
+                            <>
+                                <button style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#000000", color: "#ffffff", padding: "8px", textTransform: "uppercase", fontWeight: "bold", fontSize: "8.5px"}}>Ver carrito</button>
+                            </>
+                            }
+
                         </div>
                     </div>
 

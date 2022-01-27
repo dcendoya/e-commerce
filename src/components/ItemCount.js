@@ -1,22 +1,6 @@
 import React, {useState} from "react";
 
-export default function ItemCount ({item, max, min}){
-
-    const [cantidad, setCantidad] = useState(0);
-
-    function sumar(){
-
-        if (cantidad < max) setCantidad(cantidad + 1);
-    }
-
-    function restar() {
-        if(cantidad > min) setCantidad(cantidad - 1);
-    }
-
-    function onAdd () {
-
-        alert("Estás por agregar al carrito " + JSON.stringify(cantidad) + " productos.")
-    }
+export default function ItemCount ({onAdd, cantidad, sumar, restar}){
 
     return (
         <>
