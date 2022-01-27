@@ -4,6 +4,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Catalogo from './components/Catalogo';
+import Cart from './components/Cart';
 
 function App() {
   return (
@@ -15,15 +16,21 @@ function App() {
             <Route exact path="/">
               <ItemListContainer greeting={'¡Hola! Conocé todos nuestros productos:'} />
             </Route>
+
             {/* ruta catálogo */}
             <Route path="/catalogo/:catalogoId">
               <Catalogo />
             </Route>
+
             {/* ruta item */}
             <Route path="/item/:itemId">
               <ItemDetailContainer />
             </Route>
-            
+
+            {/* ruta carrito */}
+            <Route exact path="/cart">
+              <Cart />
+            </Route>
         </Switch>
       </BrowserRouter>
 
