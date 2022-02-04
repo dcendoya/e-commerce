@@ -1,8 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { contexto } from "./CartContext";
 import ItemCount from "./ItemCount";
 
 export default function ItemDetail ({producto}) {
+    const { addToCart } = useContext(contexto);
 
     const [showItemCount, setShowItemCount] = useState(true);
     
@@ -17,9 +19,9 @@ export default function ItemDetail ({producto}) {
         if(cantidad > 0) setCantidad(cantidad - 1);
     }
 
-    function onAdd () {
-
-        alert("Estás por agregar " + JSON.stringify(cantidad) + " " + producto.title + " al carrito.")
+    function onAdd (count) {
+        console.log(`Agregaste ${cantidad} ${producto.title} al carrito.`);
+        addToCart(producto, count);
         setShowItemCount(false);
     }
 
@@ -42,6 +44,7 @@ export default function ItemDetail ({producto}) {
                             </>
                             :
                             <>
+                                <ItemCount onAdd={onAdd} cantidad={cantidad} sumar={sumar} restar={restar} />
                                 <button style={{borderStyle: "none", backgroundColor: "#ffffff"}}><Link to={"/cart"} style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#000000", color: "#ffffff", padding: "8px", textTransform: "uppercase", textDecoration: "none", fontWeight: "bold", fontSize: "8.5px"}}>Ver carrito</Link></button>
                             </>
                             }

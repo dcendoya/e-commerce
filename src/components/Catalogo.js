@@ -33,7 +33,7 @@ export default function Catalogo () {
                 <p style={{textTransform: "capitalize", fontWeight: "bold", fontSize: "18px"}}>{item.title} color {item.color}</p>
                 
                 <p style={{textTransform: "capitalize", fontSize: "18px"}}>${item.price}</p>
-                <button style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#c6c6c6", padding: "8px", textTransform: "uppercase", fontWeight: "bold", fontSize: "8.5px"}}>Ver detalle</button>
+                <Link to={`/item/${item.id}`} style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#c6c6c6", padding: "8px", color: "#000000", textTransform: "uppercase", textDecoration: "none", fontWeight: "bold", fontSize: "8.5px"}}>Ver detalle</Link>
                 </div>
             ))}
         </>

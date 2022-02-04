@@ -5,35 +5,37 @@ import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Catalogo from './components/Catalogo';
 import Cart from './components/Cart';
+import CartContext from './components/CartContext';
 
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <NavBar />
-          <Switch>
-            {/* ruta home */}
-            <Route exact path="/">
-              <ItemListContainer greeting={'¡Hola! Conocé todos nuestros productos:'} />
-            </Route>
+      <CartContext>
+        <BrowserRouter>
+          <NavBar />
+            <Switch>
+              {/* ruta home */}
+              <Route exact path="/">
+                <ItemListContainer greeting={'¡Hola! Conocé todos nuestros productos:'} />
+              </Route>
 
-            {/* ruta catálogo */}
-            <Route path="/catalogo/:catalogoId">
-              <Catalogo />
-            </Route>
+              {/* ruta catálogo */}
+              <Route path="/catalogo/:catalogoId">
+                <Catalogo />
+              </Route>
 
-            {/* ruta item */}
-            <Route path="/item/:itemId">
-              <ItemDetailContainer />
-            </Route>
+              {/* ruta item */}
+              <Route path="/item/:itemId">
+                <ItemDetailContainer />
+              </Route>
 
-            {/* ruta carrito */}
-            <Route exact path="/cart">
-              <Cart />
-            </Route>
-        </Switch>
-      </BrowserRouter>
-
+              {/* ruta carrito */}
+              <Route exact path="/cart">
+                <Cart />
+              </Route>
+          </Switch>
+        </BrowserRouter>
+      </CartContext>
 
 
     </>
