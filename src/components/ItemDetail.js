@@ -19,9 +19,9 @@ export default function ItemDetail ({producto}) {
         if(cantidad > 0) setCantidad(cantidad - 1);
     }
 
-    function onAdd (count) {
+    function onAdd () {
         console.log(`Agregaste ${cantidad} ${producto.title} al carrito.`);
-        addToCart(producto, count);
+        addToCart(producto, cantidad);
         setShowItemCount(false);
     }
 

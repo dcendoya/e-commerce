@@ -6,13 +6,13 @@ export default function CartContext ({ children }) {
 
     const [carrito, setCarrito] = useState([]);
 
-    const addToCart = (producto, count) => {
+    const addToCart = (producto, cantidad) => {
         if (isInCart (producto.id)) {
             const indexItem = carrito.findIndex(element => element.item.id === producto.id);
-            carrito[indexItem].count = carrito[indexItem].count + count;
+            carrito[indexItem].cantidad = carrito[indexItem].cantidad + cantidad;
             setCarrito([...carrito]);
         } else {
-        setCarrito([...carrito, {item: producto, count}]);
+        setCarrito([...carrito, {item: producto, cantidad}]);
         } 
     };
 
