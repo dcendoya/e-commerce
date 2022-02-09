@@ -24,7 +24,7 @@ export default function ItemDetailContainer () {
 
     return (
         <>
-            <div><ItemDetail producto={producto} /></div>
+            <div><ItemDetail key={producto.id} producto={producto} /></div>
         </>
     )
 }
