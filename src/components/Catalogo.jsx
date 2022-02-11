@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min';
 import ItemDetail from "./ItemDetail";
+import { getFirestore } from "../firebase/firebase";
 
 export default function Catalogo () {
 
@@ -21,6 +22,31 @@ export default function Catalogo () {
             setCategorias(listaProductos.filter(item => item.categoria == catalogoId));
         }, 2000)
     }, [catalogoId])
+
+
+    // Get firestore COLLECTION CATEGORY
+
+    const [items, setItems] = useState({});
+    useEffect(()=>{
+        const db = getFirestore();
+        const itemCollection = db.collection("items").where('categoria', '==', 'tops');
+        itemCollection.get()
+            .then((querySnapShot) => {
+                if (querySnapShot.size == 0) {
+                    console.log("no hay items para mostrar");
+                    return
+                }
+                console.log("hay documentos");
+                setItems(querySnapShot.docs.map((doc)=> {
+                    return {id: doc.id, ...doc.data()}
+                }
+                ));
+                console.log(items);
+            })
+            .catch((err)=> {
+                console.log(err);
+            })
+    }, [])
 
     return (
         <>

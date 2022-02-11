@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min';
 import ItemDetail from "./ItemDetail";
+import { getFirestore } from "../firebase/firebase";
 
 export default function ItemDetailContainer () {
 
@@ -22,9 +23,38 @@ export default function ItemDetailContainer () {
         }, 2000)
     }, [])
 
+// Get firestore ITEM
+    const [item, setItem] = useState({});
+    useEffect(() => {
+        const db = getFirestore();
+        const itemCollection = db.collection("items");
+        const miItem = itemCollection.doc('sRNas0DaqZ0VhuCgQfwx');
+
+        miItem.get()
+        .then((doc) => {
+            if (!doc.exists) {
+                console.log("no existe este documento");
+                return
+            }
+            console.log("item found");
+            setItem({id: doc.id, ...doc.data()});
+        })
+        .catch((err)=> {
+            console.log(err);
+        })
+    }, [])
+
     return (
         <>
             <div><ItemDetail key={producto.id} producto={producto} /></div>
+
+            {/* prueba de firebase */}
+            <div><img src={item.url} style={{width: "200px"}}/>
+                    <p style={{textTransform: "capitalize", fontWeight: "bold", fontSize: "18px"}}>{item.title} color {item.color}</p>
+                    <p style={{textTransform: "capitalize", fontSize: "18px"}}>${item.price}</p>
+                    <p style={{fontSize: "14px"}}>{item.description}</p>
+                    <p style={{fontSize: "14px"}}>Stock del producto: {item.stock}</p>
+            </div>
         </>
     )
 }
