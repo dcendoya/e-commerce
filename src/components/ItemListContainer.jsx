@@ -38,31 +38,31 @@ export default function ItemListContainer ({greeting}) {
     
 // Get firestore COLLECTION
 
-    const [items, setItems] = useState({});
-    useEffect(()=>{
-        const db = getFirestore();
-        const itemCollection = db.collection("items");
-        itemCollection.get()
-            .then((querySnapShot) => {
-                if (querySnapShot.size == 0) {
-                    console.log("no hay items para mostrar");
-                    return
-                }
-                console.log("hay documentos");
-                setItems(querySnapShot.docs.map((doc)=> {
-                    return {id: doc.id, ...doc.data()}
-                }
-                ));
-                console.log(items);
-                console.log(querySnapShot.docs.map((doc)=> {
-                    return {id: doc.id, ...doc.data()}
-                }
-                ))
-            })
-            .catch((err)=> {
-                console.log(err);
-            })
-    }, [])
+    // const [items, setItems] = useState({});
+    // useEffect(()=>{
+    //     const db = getFirestore();
+    //     const itemCollection = db.collection("items");
+    //     itemCollection.get()
+    //         .then((querySnapShot) => {
+    //             if (querySnapShot.size == 0) {
+    //                 console.log("no hay items para mostrar");
+    //                 return
+    //             }
+    //             console.log("hay documentos");
+    //             setItems(querySnapShot.docs.map((doc)=> {
+    //                 return {id: doc.id, ...doc.data()}
+    //             }
+    //             ));
+    //             console.log(items);
+    //             console.log(querySnapShot.docs.map((doc)=> {
+    //                 return {id: doc.id, ...doc.data()}
+    //             }
+    //             ))
+    //         })
+    //         .catch((err)=> {
+    //             console.log(err);
+    //         })
+    // }, [])
 
     return (
         <>

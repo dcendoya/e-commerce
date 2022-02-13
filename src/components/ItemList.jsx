@@ -9,7 +9,7 @@ export default function ItemList ({initialPromise, listaProductos}) {
         <>
             {(initialPromise) ?
                 <>
-                    {listaProductos.map(item => <Item item={item}/>)}
+                    {listaProductos.map(item => <Item key={item.id} item={item}/>)}
                 </>
             
 

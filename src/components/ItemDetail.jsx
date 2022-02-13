@@ -44,7 +44,6 @@ export default function ItemDetail ({producto}) {
                             </>
                             :
                             <>
-                                <ItemCount onAdd={onAdd} cantidad={cantidad} sumar={sumar} restar={restar} />
                                 <button style={{borderStyle: "none", backgroundColor: "#ffffff"}}><Link to={"/cart"} style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#000000", color: "#ffffff", padding: "8px", textTransform: "uppercase", textDecoration: "none", fontWeight: "bold", fontSize: "8.5px"}}>Ver carrito</Link></button>
                             </>
                             }

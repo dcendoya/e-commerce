@@ -6,29 +6,16 @@ import CartItem from "./CartItem";
 
 export default function Cart () {
 
-    const { carrito, clearCart, sumaTotal, cantidadTotal } = useContext(contexto);
-    console.log(carrito);
-
-    const [precioTotal, setPrecioTotal] = useState(0);
-
-    const [cantidadFinal, setCantidadFinal] = useState();
-
-    useEffect(() => {
-        setPrecioTotal (sumaTotal());
-        console.log(precioTotal)
-        setCantidadFinal (cantidadTotal ());
-        console.log(cantidadFinal)
-    }, [])
-
+    const { carrito, clearCart, precioTotal, cantidadTotal } = useContext(contexto);
 
 
     return (
         <>
-            {(carrito.length === 0) ?
+            {carrito.length === 0 ?
                 <>
                     <div>
                         <p>El carrito está vacío</p>
-                        <Link to="/">¡Comenzá a comprar!</Link>
+                        <Link to="/" style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#bababa", color: "#000000", padding: "8px", textTransform: "uppercase", textDecoration: "none", fontWeight: "bold", fontSize: "10px"}}>¡Comenzá a comprar!</Link>
                     </div>
                 </>
                 :

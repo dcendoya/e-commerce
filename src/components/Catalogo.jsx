@@ -26,27 +26,27 @@ export default function Catalogo () {
 
     // Get firestore COLLECTION CATEGORY
 
-    const [items, setItems] = useState({});
-    useEffect(()=>{
-        const db = getFirestore();
-        const itemCollection = db.collection("items").where('categoria', '==', 'tops');
-        itemCollection.get()
-            .then((querySnapShot) => {
-                if (querySnapShot.size == 0) {
-                    console.log("no hay items para mostrar");
-                    return
-                }
-                console.log("hay documentos");
-                setItems(querySnapShot.docs.map((doc)=> {
-                    return {id: doc.id, ...doc.data()}
-                }
-                ));
-                console.log(items);
-            })
-            .catch((err)=> {
-                console.log(err);
-            })
-    }, [])
+    // const [items, setItems] = useState({});
+    // useEffect(()=>{
+    //     const db = getFirestore();
+    //     const itemCollection = db.collection("items").where('categoria', '==', 'tops');
+    //     itemCollection.get()
+    //         .then((querySnapShot) => {
+    //             if (querySnapShot.size == 0) {
+    //                 console.log("no hay items para mostrar");
+    //                 return
+    //             }
+    //             console.log("hay documentos");
+    //             setItems(querySnapShot.docs.map((doc)=> {
+    //                 return {id: doc.id, ...doc.data()}
+    //             }
+    //             ));
+    //             console.log(items);
+    //         })
+    //         .catch((err)=> {
+    //             console.log(err);
+    //         })
+    // }, [])
 
     return (
         <>
