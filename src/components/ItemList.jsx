@@ -1,23 +1,22 @@
 import React, {useState, useEffect} from "react";
 import Item from "./Item";
+import Loading from "./loading/Loading";
 
-export default function ItemList ({initialPromise, listaProductos}) {
+
+export default function ItemList ({items, loading}) {
     
 
    
     return (
         <>
-            {(initialPromise) ?
-                <>
-                    {listaProductos.map(item => <Item item={item}/>)}
-                </>
-            
-
+            {loading ? 
+            ( <Loading/> )
             :
-
-            <>
-                <p>Cargando productos. Esperá unos segundos.</p>
-            </>
+            (
+                <>
+                    {items.map((item) => <Item key={item.id} item={item} />)}
+                </>
+            )
             }
         
         </>

@@ -13,7 +13,7 @@ export default function CartContext ({ children }) {
             setCarrito([...carrito]);
         } else {
         setCarrito([...carrito, {item: producto, cantidad}]);
-        } 
+        }
     };
 
     const isInCart = (id) => {
@@ -29,24 +29,32 @@ export default function CartContext ({ children }) {
         setCarrito([]);
     }
 
-    const sumaTotal = () => {
-        if (carrito.length === 0) {
+    const [precioTotal, setPrecioTotal] = useState(0);
+    const [cantidadTotal, setCantidadTotal] = useState(0);
 
-        } else {
-        return (carrito.map((item) => item.item.price * item.cantidad).reduce((a,b) => a + b))
-        }
-        // Método en una línea que pasó el profesor:
-        // carrito.reduce((a, b) => a + (b.item.price * b.cantidad), 0)
+  
+    useEffect(() => {
+      if (carrito.length > 0) {
+        setPrecioTotal(
+          carrito
+            .map((product) => product.item.price * product.cantidad)
+            .reduce((total, valor) => total + valor)
+        );
 
-    }
-
-    const cantidadTotal = () => {
-        return carrito.reduce((a, b) => a + b.cantidad, 0)
-    }
-
+        setCantidadTotal(
+            carrito
+                .map((product) => product.cantidad)
+                .reduce((a, b) => a + b)
+          );
+      } else {
+        setPrecioTotal(0);
+        setCantidadTotal(0);
+      }
+    }, [carrito]);
+    
     return (
         <>
-        <contexto.Provider value={{ carrito, addToCart, deleteItem, clearCart, sumaTotal, cantidadTotal }}> 
+        <contexto.Provider value={{ carrito, addToCart, deleteItem, clearCart, precioTotal, cantidadTotal }}> 
             {children}
         </contexto.Provider>
         </>
