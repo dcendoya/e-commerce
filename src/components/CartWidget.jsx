@@ -1,7 +1,6 @@
 import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import {BsFillCartFill} from "react-icons/bs";
-import { useContext } from "react/cjs/react.development";
 import { contexto } from "./CartContext";
 
 export default function CartIcon () {
