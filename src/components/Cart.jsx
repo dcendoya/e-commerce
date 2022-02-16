@@ -26,6 +26,7 @@ export default function Cart () {
                     <p>Monto total a abonar: ${precioTotal}</p>
                     <p>Cantidad total de productos: {cantidadTotal}</p>
                     <button onClick={() => clearCart()} style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#000000", color: "#ffffff", padding: "8px", textTransform: "uppercase", textDecoration: "none", fontWeight: "bold", fontSize: "8.5px"}}>Vaciar carrito</button>
+                    <Link to={"/order"} style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#c6c6c6", padding: "8px", color: "#000000", textTransform: "uppercase", textDecoration: "none", fontWeight: "bold", fontSize: "8.5px"}}>Iniciar compra</Link>
                 </div>
             }
         </>

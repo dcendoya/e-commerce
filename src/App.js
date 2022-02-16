@@ -6,6 +6,7 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 import Catalogo from './components/Catalogo';
 import Cart from './components/Cart';
 import CartContext from './components/CartContext';
+import Order from './components/Order';
 
 function App() {
   return (
@@ -32,6 +33,11 @@ function App() {
               {/* ruta carrito */}
               <Route exact path="/cart">
                 <Cart />
+              </Route>
+
+              {/* ruta orden */}
+              <Route exact path="/order">
+                <Order />
               </Route>
           </Switch>
         </BrowserRouter>
