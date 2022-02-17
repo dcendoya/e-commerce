@@ -1,13 +1,15 @@
-import React, {useContext, useEffect, useState, useRef } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 import firebase from "firebase";
 import { contexto } from "./CartContext";
 import { getFirestore } from "../firebase/firebase";
+import "./Order.css";
 
-export default function Order () {
+export default function Order() {
 
-    const { carrito, precioTotal } = useContext(contexto);
+    const { carrito, clearCart, precioTotal } = useContext(contexto);
 
     const [orderId, setOrderId] = useState();
+    const [val, setVal] = useState();
 
     const nombreRef = useRef();
     const mobileRef = useRef();
@@ -15,35 +17,39 @@ export default function Order () {
     const provinciaRef = useRef();
     const ciudadRef = useRef();
     const direccionRef = useRef();
-    
+
     function handleClick() {
-       
-            const db = getFirestore();
-            const orders = db.collection("orders");
-        
-            const miOrden = {
-                buyer: {                
-                    nombre: nombreRef.current.value,
-                    mobile: mobileRef.current.value,
-                    email: emailRef.current.value,
-                    provincia: provinciaRef.current.value,
-                    ciudad: ciudadRef.current.value,
-                    direccion: direccionRef.current.value,
-    
-                },
-                items: carrito,
-                total: precioTotal,
-                date: firebase.firestore.Timestamp.fromDate(new Date())
-            }
-        
-            orders.add(miOrden)
-                .then(({id}) => {
-                    console.log("Orden ingresada: " + id);
-                    setOrderId(id);
-                })
-                .catch((err) => {
-                    console.log(err);
-                })
+
+        const db = getFirestore();
+        const orders = db.collection("orders");
+
+        const miOrden = {
+            buyer: {
+                nombre: nombreRef.current.value,
+                mobile: mobileRef.current.value,
+                email: emailRef.current.value,
+                provincia: provinciaRef.current.value,
+                ciudad: ciudadRef.current.value,
+                direccion: direccionRef.current.value,
+
+            },
+            items: carrito,
+            total: precioTotal,
+            date: firebase.firestore.Timestamp.fromDate(new Date())
+        }
+
+        orders.add(miOrden)
+            .then(({ id }) => {
+                console.log("Orden ingresada: " + id);
+                setOrderId(id);
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally(() => {
+                setVal("");
+                clearCart();
+            })
 
     }
 
@@ -54,31 +60,37 @@ export default function Order () {
     return (
 
         <>
-            <div>
-                <h3>Por favor, completá tus datos para realizar la orden de compra:</h3>
 
-                <input type="text" name="nombre" ref={nombreRef} placeholder="Nombre y Apelllido" />
+            <h3 className="greeting">Por favor, completá tus datos para realizar la orden de compra:</h3>
+            <div className="inputContainer">
+                <input type="text" name="nombre" ref={nombreRef} placeholder="Nombre y Apellido" value={val} />
                 <br />
 
-                <input type="text" name="mobile" ref={mobileRef} placeholder="Nro de Celular" />
+                <input type="text" name="mobile" ref={mobileRef} placeholder="Celular" value={val}/>
                 <br />
 
-                <input type="text" name="email" ref={emailRef} placeholder="Email" />
+                <input type="text" name="email" ref={emailRef} placeholder="Email" value={val}/>
                 <br />
 
-                <input type="text" name="provincia" ref={provinciaRef} placeholder="Provincia" />
+                <input type="text" name="provincia" ref={provinciaRef} placeholder="Provincia" value={val}/>
                 <br />
 
-                <input type="text" name="ciudad" ref={ciudadRef} placeholder="Ciudad" />
+                <input type="text" name="ciudad" ref={ciudadRef} placeholder="Ciudad" value={val}/>
                 <br />
 
-                <input type="text" name="direccion" ref={direccionRef} placeholder="Dirección" />
+                <input type="text" name="direccion" ref={direccionRef} placeholder="Dirección" value={val}/>
                 <br />
 
-                <button onClick={() => handleClick()} >Iniciar orden</button>
+                <button onClick={() => handleClick()} className="orderButton">Iniciar orden</button>
             </div>
 
-            {orderId && (<p>Tu orden de compra es: {orderId}</p>)};
+            <div className="orderIdContainer">
+                {orderId && (
+                <>
+                <p>Tu orden de compra es: <span className="orderId">{orderId}</span></p>
+                <p>¡Gracias por elergirnos!</p>
+                </>)}
+            </div>
         </>
     )
 }

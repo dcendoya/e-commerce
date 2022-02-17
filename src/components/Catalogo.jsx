@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/
 import ItemDetail from "./ItemDetail";
 import { getFirestore } from "../firebase/firebase";
 import Loading from "./loading/Loading";
+import "./Catalogo.css";
 
 export default function Catalogo () {
 
@@ -34,7 +35,7 @@ export default function Catalogo () {
     return (
         <>
             <div>
-                <p>Mirá todas las prendas del catálogo {catalogoId}</p>
+                <p className="greeting">Mirá todas las prendas del catálogo {catalogoId}</p>
             </div>
             
             { (loading) ?
@@ -42,11 +43,11 @@ export default function Catalogo () {
                 :
                 (<>
                     {categorias.map(item => (
-                        <div style={{marginBottom: "80px", width: "fit-content", padding: "30px", borderRadius: "30px", boxShadow: "rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px"}}>
+                        <div className="productItem">
                         <div><img src={item.url} style={{width: "200px"}}/></div>
-                        <p style={{textTransform: "capitalize", fontWeight: "bold", fontSize: "18px"}}>{item.title} color {item.color}</p>
-                        <p style={{textTransform: "capitalize", fontSize: "18px"}}>${item.price}</p>
-                        <Link to={`/item/${item.id}`} style={{borderStyle: "none", borderRadius: "30px", backgroundColor: "#c6c6c6", padding: "8px", color: "#000000", textTransform: "uppercase", textDecoration: "none", fontWeight: "bold", fontSize: "8.5px"}}>Ver detalle</Link>
+                        <p className="itemTitle">{item.title} color {item.color}</p>
+                        <p className="itemDescription">${item.price}</p>
+                        <Link to={`/item/${item.id}`} className="boton">Ver detalle</Link>
                         </div>
                     ))}
                 </>)

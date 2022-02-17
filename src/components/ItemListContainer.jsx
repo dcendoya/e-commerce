@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import ItemList from "./ItemList";
 import { getFirestore } from "../firebase/firebase";
+import "./ItemList.css";
 
 export default function ItemListContainer ({greeting}) {
     
@@ -29,7 +30,7 @@ export default function ItemListContainer ({greeting}) {
 
     return (
         <>
-            <div>{greeting}</div>
+            <div className="greeting">{greeting}</div>
             <div><ItemList items={items} loading={loading} /></div>
 
         </>
