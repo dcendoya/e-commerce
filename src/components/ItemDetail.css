@@ -1,16 +1,3 @@
-
-.greyButton {
-    border-style: none;
-    border-radius: 30px;
-    background-color: #c6c6c6;
-    padding: 8px;
-    color: #000000;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 8.5px;
-}
-
 .container {
   position: relative;
   margin: auto;
@@ -51,7 +38,7 @@ h2 {
   text-align: justify;
 }
 
-.boton {
+.botonAgregar {
     border-style: none;
     border-radius: 30px;
     background-color: #eeeeee;
@@ -62,7 +49,7 @@ h2 {
     text-decoration: none;
     color: #000000;
 }
-.boton:hover {
+.botonAgregar:hover {
     background: #c6c6c6;
     transition: all .4s ease-in-out;
 }

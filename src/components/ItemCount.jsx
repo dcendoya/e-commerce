@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
+import "./ItemDetail.css"
 
 export default function ItemCount ({onAdd, cantidad, sumar, restar}){
 
@@ -9,7 +10,7 @@ export default function ItemCount ({onAdd, cantidad, sumar, restar}){
             {cantidad}
             <button onClick={()=>sumar()} className="counter">+</button>
         </div>
-        <button onClick={()=>onAdd()} className="boton">Agregá al carrito</button>
+        <button onClick={()=>onAdd()} className="botonAgregar">Agregá al carrito</button>
         </>
     )
 }

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from "react";
-import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import ItemDetail from "./ItemDetail";
 import { getFirestore } from "../firebase/firebase";
 

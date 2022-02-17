@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import CartIcon from "./CartWidget";
 
 export default function NavBar (){

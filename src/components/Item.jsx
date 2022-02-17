@@ -1,5 +1,5 @@
-import React, {useState} from "react";
-import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min';
+import React from "react";
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import "./ItemList.css";
 
 export default function Item ({item}) {
