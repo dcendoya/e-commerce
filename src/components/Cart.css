@@ -1,6 +1,8 @@
 .CartContainer{
 	width: 70%;
-	height: 90%;
+	height: fit-content;
+	overflow: auto;
+	padding-bottom: 20px;
 	background-color: #ffffff;
     border-radius: 20px;
     box-shadow: rgb(0 0 0 / 16%) 0px 10px 36px 0px, rgb(0 0 0 / 6%) 0px 0px 0px 1px;

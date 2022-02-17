@@ -44,7 +44,7 @@ export default function Catalogo () {
                 (<>
                     {categorias.map(item => (
                         <div className="productItem">
-                        <div><img src={item.url} style={{width: "200px"}}/></div>
+                        <div><img src={item.url} style={{height: "250px"}}/></div>
                         <p className="itemTitle">{item.title} color {item.color}</p>
                         <p className="itemDescription">${item.price}</p>
                         <Link to={`/item/${item.id}`} className="boton">Ver detalle</Link>
