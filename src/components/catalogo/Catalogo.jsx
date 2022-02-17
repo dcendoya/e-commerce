@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from "react";
 import { BrowserRouter, Switch, Route, useParams, Link } from 'react-router-dom/cjs/react-router-dom.min';
-import ItemDetail from "./ItemDetail";
-import { getFirestore } from "../firebase/firebase";
-import Loading from "./loading/Loading";
+import { getFirestore } from "../../firebase/firebase";
+import Loading from "../loading/Loading";
 import "./Catalogo.css";
 
 export default function Catalogo () {

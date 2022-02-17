@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useContext } from "react/cjs/react.development";
-import { contexto } from "./CartContext";
+import { contexto } from "../CartContext";
 import CartItem from "./CartItem";
 import "./Cart.css";
 

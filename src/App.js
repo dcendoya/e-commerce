@@ -1,13 +1,13 @@
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
-import NavBar from './components/NavBar';
-import Footer from './components/Footer';
-import ItemListContainer from './components/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer';
-import Catalogo from './components/Catalogo';
-import Cart from './components/Cart';
+import NavBar from './components/header/NavBar';
+import Footer from './components/footer/Footer';
+import ItemListContainer from './components/home/ItemListContainer';
+import ItemDetailContainer from './components/producto/ItemDetailContainer';
+import Catalogo from './components/catalogo/Catalogo';
+import Cart from './components/cart/Cart';
 import CartContext from './components/CartContext';
-import Checkout from './components/Checkout';
+import Checkout from './components/checkout/Checkout';
 
 function App() {
   return (

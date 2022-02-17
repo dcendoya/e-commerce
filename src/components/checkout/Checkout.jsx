@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState, useRef } from "react";
 import firebase from "firebase";
-import { contexto } from "./CartContext";
-import { getFirestore } from "../firebase/firebase";
+import { contexto } from "../CartContext";
+import { getFirestore } from "../../firebase/firebase";
 import "./Checkout.css";
 
 export default function Checkout() {

@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-import { contexto } from "./CartContext";
+import { contexto } from "../CartContext";
 import ItemCount from "./ItemCount";
-import Loading from "./loading/Loading";
+import Loading from "../loading/Loading";
 import "./ItemDetail.css";
 
 
