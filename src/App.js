@@ -1,12 +1,13 @@
 import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom/cjs/react-router-dom.min';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Catalogo from './components/Catalogo';
 import Cart from './components/Cart';
 import CartContext from './components/CartContext';
-import Order from './components/Order';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -35,11 +36,12 @@ function App() {
                 <Cart />
               </Route>
 
-              {/* ruta orden */}
-              <Route exact path="/order">
-                <Order />
+              {/* ruta checkout */}
+              <Route exact path="/checkout">
+                <Checkout />
               </Route>
-          </Switch>
+            </Switch>
+          <Footer />
         </BrowserRouter>
       </CartContext>
 

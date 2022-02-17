@@ -41,10 +41,11 @@ export default function Cart() {
                                     <div className="total-amount">${precioTotal}</div>
                                 </div>
                                 <div className="buttonContainer">
-                                    <Link to={"/order"} className="chekoutButton">Iniciar compra</Link>
+                                    <Link to={"/checkout"} className="chekoutButton">Iniciar compra</Link>
                                 </div>
                             </div>
                     </div>
+                    <div style={{marginTop: "100px"}}></div>
                 </>
             }
         </>

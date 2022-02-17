@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import firebase from "firebase";
 import { contexto } from "./CartContext";
 import { getFirestore } from "../firebase/firebase";
-import "./Order.css";
+import "./Checkout.css";
 
-export default function Order() {
+export default function Checkout() {
 
     const { carrito, clearCart, precioTotal } = useContext(contexto);
 
@@ -60,25 +60,24 @@ export default function Order() {
     return (
 
         <>
-
-            <h3 className="greeting">Por favor, completá tus datos para realizar la orden de compra:</h3>
+            <p className="greeting">Por favor, completá tus datos para realizar la orden de compra:</p>
             <div className="inputContainer">
                 <input type="text" name="nombre" ref={nombreRef} placeholder="Nombre y Apellido" value={val} />
                 <br />
 
-                <input type="text" name="mobile" ref={mobileRef} placeholder="Celular" value={val}/>
+                <input type="text" name="mobile" ref={mobileRef} placeholder="Celular" value={val} />
                 <br />
 
-                <input type="text" name="email" ref={emailRef} placeholder="Email" value={val}/>
+                <input type="text" name="email" ref={emailRef} placeholder="Email" value={val} />
                 <br />
 
-                <input type="text" name="provincia" ref={provinciaRef} placeholder="Provincia" value={val}/>
+                <input type="text" name="provincia" ref={provinciaRef} placeholder="Provincia" value={val} />
                 <br />
 
-                <input type="text" name="ciudad" ref={ciudadRef} placeholder="Ciudad" value={val}/>
+                <input type="text" name="ciudad" ref={ciudadRef} placeholder="Ciudad" value={val} />
                 <br />
 
-                <input type="text" name="direccion" ref={direccionRef} placeholder="Dirección" value={val}/>
+                <input type="text" name="direccion" ref={direccionRef} placeholder="Dirección" value={val} />
                 <br />
 
                 <button onClick={() => handleClick()} className="orderButton">Iniciar orden</button>
@@ -86,10 +85,10 @@ export default function Order() {
 
             <div className="orderIdContainer">
                 {orderId && (
-                <>
-                <p>Tu orden de compra es: <span className="orderId">{orderId}</span></p>
-                <p>¡Gracias por elergirnos!</p>
-                </>)}
+                    <>
+                        <p>Tu orden de compra es: <span className="orderId">{orderId}</span></p>
+                        <p>¡Gracias por elergirnos!</p>
+                    </>)}
             </div>
         </>
     )
