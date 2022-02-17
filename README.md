@@ -27,4 +27,4 @@ En caso de no abrirse el SPA automáticamente en el navegador, hacer click en [h
 
 ### Preview
 
-[Ver demo](https://www.youtube.com/watch?v=MkvCaf7OfpM) del proyecto.
+[Ver demo](https://youtu.be/rioKCpYeVZI) del proyecto.
