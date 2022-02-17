@@ -80,7 +80,7 @@ export default function Checkout() {
                 <input type="text" name="direccion" ref={direccionRef} placeholder="Dirección" value={val} />
                 <br />
 
-                <button onClick={() => handleClick()} className="orderButton">Iniciar orden</button>
+                <button onClick={() => handleClick()} className="orderButton">Generar orden</button>
             </div>
 
             <div className="orderIdContainer">
